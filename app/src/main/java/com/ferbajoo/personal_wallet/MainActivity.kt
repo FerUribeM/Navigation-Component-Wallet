@@ -16,16 +16,19 @@ class MainActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val navController = Navigation.findNavController(this,R.id.menu_fragment)
+        setupNavigation()
 
+        val navController = Navigation.findNavController(this,R.id.menu_fragment)
+        setSupportActionBar(toolbar)
+
+        NavigationUI.setupActionBarWithNavController(this,navController,drawer_layout)
+        nav_view.setupWithNavController(navController)
+    }
+
+    private fun setupNavigation() {
         val toggle = ActionBarDrawerToggle(this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close)
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
-
-        setSupportActionBar(toolbar)
-        NavigationUI.setupActionBarWithNavController(this,navController,drawer_layout)
-
-        nav_view.setupWithNavController(navController)
     }
 
     override fun onSupportNavigateUp() = NavigationUI.navigateUp(drawer_layout,Navigation.findNavController(this, R.id.menu_fragment))
