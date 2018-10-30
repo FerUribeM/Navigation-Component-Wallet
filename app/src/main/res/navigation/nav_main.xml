@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/nav_start">
+
+    <fragment
+        android:id="@+id/nav_start"
+        android:name="com.ferbajoo.personal_wallet.fragments.MenuWalletFragment"
+        android:label="Menu"
+        tools:layout="@layout/menu_wallet_fragment" />
+
+    <fragment
+        android:id="@+id/nav_expensed"
+        android:name="com.ferbajoo.personal_wallet.fragments.ExpensesFragment"
+        android:label="Gastos"
+        tools:layout="@layout/expenses_fragment" >
+
+        <action
+            android:id="@+id/action_nav_expensed_to_detailExpenses"
+            app:destination="@id/detailExpenses"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+
+            <argument
+                android:name="cost"
+                android:defaultValue="0"
+                app:argType="integer" />
+
+            <argument
+                android:name="nameProduct"
+                android:defaultValue="Refresco"
+                app:argType="string" />
+
+        </action>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailExpenses"
+        android:name="com.ferbajoo.personal_wallet.fragments.DetailExpenses"
+        android:label="Detalles"
+        tools:layout="@layout/detail_expenses_fragment" >
+        <argument
+            android:name="nameProduct"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_graphics"
+        android:name="com.ferbajoo.personal_wallet.fragments.GraphicsFragment"
+        android:label="Gráficas"
+        tools:layout="@layout/graphics_fragment" />
+
+    <fragment
+        android:id="@+id/nav_product"
+        android:name="com.ferbajoo.personal_wallet.fragments.ProductFragment"
+        android:label="Productos"
+        tools:layout="@layout/product_fragment" />
+
+    <fragment
+        android:id="@+id/nav_calendar"
+        android:name="com.ferbajoo.personal_wallet.fragments.CalendarFragment"
+        android:label="Calendario"
+        tools:layout="@layout/calendar_fragment" />
+    <fragment
+        android:id="@+id/nav_configuration"
+        android:name="com.ferbajoo.personal_wallet.fragments.ConfigurationFragment"
+        android:label="Configuración"
+        tools:layout="@layout/configuration_fragment" />
+
+</navigation>

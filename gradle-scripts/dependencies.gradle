@@ -1,0 +1,115 @@
+ext {
+
+    supportPackage = "com.android.support"
+    supportVersion = "27.1.1"
+
+    contraintPackage = "com.android.support.constraint"
+    constraintVersion = "1.1.3"
+
+    supportTestPackage = "com.android.support.test"
+    supportEspressoPackage = "com.android.support.test.espresso"
+    roboelectricPackage = "org.robolectric"
+    kotlin_stlib_junitPackage = "org.jetbrains.kotlin"
+    kotlin_kluentPackage = "org.amshove.kluent"
+    test_runner = "1.0.2"
+    espresso = "3.0.2"
+    roboelectricVersion = "3.8"
+    kotlin_stlibVersion = "1.2.60"
+    kotlin_junitVersion = "1.2.50"
+    kotlin_kluentVersion = "1.14"
+
+    jUnitPackage = "junit"
+    junitVersion = "4.12"
+
+    navigationVersion = "1.0.0-alpha06"
+
+    roomPackage = "android.arch.persistence.room"
+
+    roomVersion = "1.1.1"
+    lifecycleVersion = "1.1.1"
+    xsupportVersion = '1.0.0'
+    constraintLayoutVersion = '2.0.0-alpha2'
+
+    reactivexPackage = "io.reactivex.rxjava2"
+    rxAndroidVersion = "2.0.2"
+    rxKotlinVersion = "2.0.2"
+
+    retrofilPackage = "com.squareup.retrofit2"
+    retrofilVersion = "2.3.0"
+
+    rxbinding2Package = "com.jakewharton.rxbinding2"
+    rxbindingVersion = "2.1.1"
+    rxbindingKotlinVersion = "2.0.0"
+
+    bindingPackage = "com.android.databinding"
+    bindingVersion = "2.3.1"
+
+    xcardVersion = "1.0.0-alpha3"
+
+    lifecyclePackage = "android.arch.lifecycle"
+
+    supportDependencies = [
+            supportLibrary: buildDependency(supportPackage, 'support-v4', supportVersion),
+            appCompat     : buildDependency(supportPackage, 'appcompat-v7', supportVersion),
+            design        : buildDependency(supportPackage, 'design', supportVersion),
+            recyclerView  : buildDependency(supportPackage, 'recyclerview-v7', supportVersion),
+            cardView      : buildDependency(supportPackage, 'cardview-v7', supportVersion)
+    ]
+
+    testDependencies = [
+            runner : buildDependency(supportTestPackage, 'runner', test_runner),
+            espressoCore : buildDependency(supportEspressoPackage, 'espresso-core', espresso),
+            roboelectric : buildDependency(roboelectricPackage, 'robolectric', roboelectricVersion),
+            kotlin_stdlib : buildDependency(kotlin_stlib_junitPackage, 'kotlin-stdlib', kotlin_stlibVersion),
+            kotlin_junit : buildDependency(kotlin_stlib_junitPackage, 'kotlin-test-junit', kotlin_junitVersion),
+            kotlin_kluent : buildDependency(kotlin_kluentPackage, 'kluent', kotlin_kluentVersion)
+    ]
+
+    reactivexDependencies = [
+            rxAndroid: buildDependency(reactivexPackage, 'rxandroid', rxAndroidVersion),
+            rxKotlin : buildDependency(reactivexPackage, 'rxkotlin', rxKotlinVersion)
+    ]
+
+    retrofilDependencies = [
+            retrofil : buildDependency(retrofilPackage, 'retrofit', retrofilVersion),
+            adapter  : buildDependency(retrofilPackage, 'adapter-rxjava2', retrofilVersion),
+            gson     : buildDependency(retrofilPackage, 'converter-gson', retrofilVersion),
+            converter: buildDependency(retrofilPackage, 'converter-scalars', retrofilVersion)
+    ]
+
+    rxBindingDependencies = [
+            rxBinding      : buildDependency(rxbinding2Package, 'rxbinding', rxbindingVersion),
+            rxBindingDesing: buildDependency(rxbinding2Package, 'rxbinding-design', rxbindingVersion),
+            rxBindingKotlin: buildDependency(rxbinding2Package, 'rxbinding-kotlin', rxbindingKotlinVersion)
+    ]
+
+
+    roomDependencies = [
+            runtime : buildDependency(roomPackage, 'runtime', roomVersion),
+            rxjava2 : buildDependency(roomPackage, 'rxjava2', roomVersion),
+            compiler: buildDependency(roomPackage, 'compiler', roomVersion)
+    ]
+
+
+    lifecycleDependencies = [
+            extensions : buildDependency(lifecyclePackage, 'extensions', lifecycleVersion),
+            compiler : buildDependency(lifecyclePackage, 'compiler', lifecycleVersion)
+    ]
+
+    constraintLibrary = buildDependency(contraintPackage,'constraint-layout', constraintVersion)
+
+    junitLibrary = buildDependency(jUnitPackage, 'junit', junitVersion)
+
+    bindingCompile = buildDependency(bindingPackage, 'compiler', bindingVersion)
+
+    navigationDependencies = [
+            navigationFragmentLibrary : "android.arch.navigation:navigation-fragment-ktx:$navigationVersion",
+            navigationUILibrary : "android.arch.navigation:navigation-ui-ktx:$navigationVersion"
+    ]
+
+}
+
+static String buildDependency(String pack, String dependency, String version) {
+    return "${pack}:${dependency}:${version}"
+}
+
